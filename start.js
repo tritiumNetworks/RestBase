@@ -23,7 +23,7 @@ if (settings.useCors) {
   app.use(cors())
 }
 
-app.use(express.json())
+app.use(express.json({ limit: settings.limit + 'MB' }))
 
 if (!settings.permission) {
   settings.permission = {}

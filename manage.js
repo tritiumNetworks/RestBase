@@ -117,6 +117,14 @@ async function setSettings () {
     }
   ])
 
+  const limitSetting = await prompts({
+    type: 'number',
+    name: 'limit',
+    message: settings.locale === 'KR' ? '전송 받을 데이터의 최대 용량 제한을 메가바이트(MB)단위로 적어주세요' : 'Please Enter Limit of In-comming Data(MB)'
+  })
+
+  selectSetting.limit = limitSetting.limit
+
   switch (selectSetting.useCors) {
     case 'yes':
       selectSetting.useCors = true
